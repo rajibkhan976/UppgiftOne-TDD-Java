@@ -9,7 +9,7 @@ public class App
     public static void main( String[] args )
     {
         int[] numArr = {1,2,3,2};
-        UnitTest test = new UnitTest(numArr);
+        ManipulateArray test = new ManipulateArray(numArr);
         test.getAverage();
         test.findPositions(2);
         test.appendLast(4);

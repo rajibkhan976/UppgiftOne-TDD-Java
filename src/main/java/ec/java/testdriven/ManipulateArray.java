@@ -2,11 +2,11 @@ package ec.java.testdriven;
 
 import java.util.Arrays;
 
-public class UnitTest implements IIntArray {
+public class ManipulateArray implements IIntArray {
 
     private int[] numArr;
 
-    public UnitTest(int[] numArr) {
+    public ManipulateArray(int[] numArr) {
         this.numArr = numArr;
     }
 
@@ -81,11 +81,16 @@ public class UnitTest implements IIntArray {
 
     @Override
     public void setAt(int pos, int element) {
-        if (!(pos < 0) && pos < this.numArr.length) {
-            for (int c = 0; c < this.numArr.length; c++) {
-                if (c == pos) {
-                    this.numArr[c] = element;
+        if (!(pos < 0)) {
+            if (pos < this.numArr.length) {
+                for (int c = 0; c < this.numArr.length; c++) {
+                    if (c == pos) {
+                        this.numArr[c] = element;
+                    }
                 }
+            } else {
+                this.numArr = Arrays.copyOf(this.numArr, pos + 1);
+                this.numArr[pos] = element;
             }
         }
     }
